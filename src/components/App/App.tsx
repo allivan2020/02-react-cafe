@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import type { Votes, VoteType } from 'types/votes';
+import type { Votes, VoteType } from '../../types/votes';
 import css from './App.module.css';
-import CafeInfo from 'components/CafeInfo/CafeInfo';
-import { VoteOptions } from 'components/VoteOptions/VoteOptions';
-import { VoteStats } from 'components/VoteStats/VoteStats';
-import Notification from 'components/Notification/Notification';
+import CafeInfo from '../CafeInfo/CafeInfo';
+import { VoteOptions } from '../VoteOptions/VoteOptions';
+import { VoteStats } from '../VoteStats/VoteStats';
+import Notification from '../Notification/Notification';
 
 function App() {
   const [votes, setVotes] = useState<Votes>({
@@ -35,26 +35,27 @@ function App() {
   const positiveRate =
     totalVotes > 0 ? Math.round((votes.good / totalVotes) * 100) : 0;
 
-  // const Notification = <p className={css.message}>No feedback yet</p>;
-
   return (
-    <>
-      <div className={css.app}>
-        <CafeInfo />
+    <div className={css.app}>
+      <CafeInfo />
 
-        <VoteOptions
-          onVote={handleVote}
-          onReset={resetVotes}
-          showReset={totalVotes > 0}
+      <VoteOptions
+        onVote={handleVote}
+        onReset={resetVotes}
+        canReset={totalVotes > 0}
+      />
+
+      {totalVotes > 0 ? (
+        <VoteStats
+          votes={votes}
+          totalVotes={totalVotes}
+          positiveRate={positiveRate}
         />
-
-        {totalVotes > 0 ? (
-          <VoteStats stats={votes} total={totalVotes} rate={positiveRate} />
-        ) : (
-          <Notification />
-        )}
-      </div>
-    </>
+      ) : (
+        <Notification />
+      )}
+    </div>
   );
 }
+
 export default App;
