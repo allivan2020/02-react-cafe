@@ -4,6 +4,7 @@ import css from './App.module.css';
 import CafeInfo from 'components/CafeInfo/CafeInfo';
 import { VoteOptions } from 'components/VoteOptions/VoteOptions';
 import { VoteStats } from 'components/VoteStats/VoteStats';
+import Notification from 'components/Notification/Notification';
 
 function App() {
   const [votes, setVotes] = useState<Votes>({
@@ -34,7 +35,7 @@ function App() {
   const positiveRate =
     totalVotes > 0 ? Math.round((votes.good / totalVotes) * 100) : 0;
 
-  const Notification = <p className={css.message}>No feedback yet</p>;
+  // const Notification = <p className={css.message}>No feedback yet</p>;
 
   return (
     <>
@@ -50,7 +51,7 @@ function App() {
         {totalVotes > 0 ? (
           <VoteStats stats={votes} total={totalVotes} rate={positiveRate} />
         ) : (
-          Notification
+          <Notification />
         )}
       </div>
     </>
