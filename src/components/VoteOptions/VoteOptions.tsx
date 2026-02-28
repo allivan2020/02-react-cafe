@@ -11,7 +11,7 @@ export const VoteOptions = ({
   showReset,
 }: VoteOptionsProps) => {
   return (
-    <div className={css.buttonContainer}>
+    <div className={css.container}>
       <button
         className={`${css.button} ${css.good}`}
         onClick={() => onVote('good')}

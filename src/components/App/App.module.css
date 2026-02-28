@@ -9,15 +9,13 @@
 }
 
 .message {
-  border: 2px solid #e0e0e0;
-  background-color: #fafafa;
-  color: #555;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 500;
-  max-width: 300px;
-  margin: 30px auto;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin: 0;
+  background-color: #f1f3f5;
+  color: #2d2d2d;
+  border: 1px solid #d3d6da;
+  border-radius: 4px;
+  padding: 20px 24px;
+  font-size: 16px;
+  max-width: 400px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
 }
